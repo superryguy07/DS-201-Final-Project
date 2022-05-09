@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>U.S. Education Datasets: Unification Project | Kaggle</title>
+  <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+  <meta name="description" content="K-12 financial, enrollment, and achievement data in one place" />
+  <meta name="turbolinks-cache-control" content="no-cache" />
+    <meta name="keywords" content="computer science,education,programming,finance,social science,united states" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC" />
+  <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/javascript">
+    window["pageRequestStartTime"] = 1652123984912;
+    window["pageRequestEndTime"] = 1652123985038;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+  <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" media="print" id="async-google-font-2" />
+  <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+    <link rel="canonical" href="/noriuk/us-education-datasets-unification-project" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=1f6d99669e949b7dfa2b" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=c938137e20b65e283de9" />
+  
+    
+ 
+      <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-12629138-1', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Datasets'
+        });
+    </script>
+    <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" async src="https://www.googletagmanager.com/gtag/js?id=UA-12629138-1"></script>
+
+  
+    
+    <meta property="og:url" content="/noriuk/us-education-datasets-unification-project" />
+    <meta property="og:title" content="U.S. Education Datasets: Unification Project" />
+    <meta property="og:description" content="K-12 financial, enrollment, and achievement data in one place" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/95317/222058/931f23cd121437c972b622a647c00b3c/dataset-card.jpg?t=2018-12-22-16-03-27" />
+    <meta property="fb:app_id" content="2665027677054710" />
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+
+
+  <meta name="twitter:site" content="@Kaggle" /> 
+  
+    
+    <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"U.S. Education Datasets: Unification Project","description":"***Author's Note 2019/04/20:*** *Revisiting this project, I recently discovered the [incredibly comprehensive API](https://educationdata.urban.org/documentation/schools.html#overview) produced by the Urban Institute. It achieves all of the goals laid out for this dataset in wonderful detail. I recommend that users interested pay a visit to their site.*\n\n### Context\n\nThis dataset is designed to bring together multiple facets of U.S. education data into one convenient CSV (states_all.csv). \n\n### Contents\n\n* **`states_all.csv`**:\nThe primary data file. Contains aggregates from all state-level sources in one CSV.\n\n* **`output_files/states_all_extended.csv`**:\nThe contents of `states_all.csv` with additional data related to race and gender. \n\n\n### Column Breakdown\n\n#### **Identification**\n\n* `PRIMARY_KEY`: A combination of the year and state name.\n* `YEAR`\n* `STATE`\n\n\n#### **Enrollment**\nA breakdown of students enrolled in schools by school year.\n\n* `GRADES_PK`: Number of students in Pre-Kindergarten education.\n\n* `GRADES_4`: Number of students in fourth grade.\n\n* `GRADES_8`: Number of students in eighth grade.\n\n* `GRADES_12`: Number of students in twelfth grade.\n\n* `GRADES_1_8`: Number of students in the first through eighth grades.\n\n* `GRADES 9_12`: Number of students in the ninth through twelfth grades.\n\n* `GRADES_ALL`: The count of all students in the state. Comparable to ENROLL in the financial data (which is the U.S.\nCensus Bureau's estimate for students in the state).\n\nThe extended version of states_all contains additional columns that breakdown enrollment by race and gender. For example:\n\n* `G06_A_A`: Total number of sixth grade students.\n\n* `G06_AS_M`: Number of sixth grade male students whose ethnicity was classified as \"Asian\".\n\n* `G08_AS_A_READING`: Average reading score of eighth grade students whose ethnicity was classified as \"Asian\".\n\nThe represented races include AM (American Indian or Alaska Native), AS (Asian), HI (Hispanic/Latino), BL (Black or African American), WH (White), HP (Hawaiian Native/Pacific Islander), and TR (Two or More Races). The represented genders include M (Male) and F (Female).\n\n#### **Financials**\nA breakdown of states by revenue and expenditure.\n\n* `ENROLL`: The U.S. Census Bureau's count for students in the state. Should be comparable to GRADES_ALL (which is the\nNCES's estimate for students in the state).\n\n* `TOTAL REVENUE`: The total amount of revenue for the state.\n    * `FEDERAL_REVENUE`\n    * `STATE_REVENUE`\n    * `LOCAL_REVENUE`\n    \n* TOTAL_EXPENDITURE: The total expenditure for the state.\n    * `INSTRUCTION_EXPENDITURE`\n    * `SUPPORT_SERVICES_EXPENDITURE`\n\n    * `CAPITAL_OUTLAY_EXPENDITURE`\n    * `OTHER_EXPENDITURE`\n\n#### **Academic Achievement**\nA breakdown of student performance as assessed by the corresponding exams (math and reading, \ngrades 4 and 8).\n\n* `AVG_MATH_4_SCORE`: The state's average score for fourth graders taking the NAEP math exam.\n\n* `AVG_MATH_8_SCORE`: The state's average score for eight graders taking the NAEP math exam.\n\n* `AVG_READING_4_SCORE`: The state's average score for fourth graders taking the NAEP reading exam.\n\n* `AVG_READING_8_SCORE`: The state's average score for eighth graders taking the NAEP reading exam.\n\n### Data Processing\n\nThe original sources can be found here:\n\n<pre># Enrollment\nhttps://nces.ed.gov/ccd/stnfis.asp\n# Financials\nhttps://www.census.gov/programs-surveys/school-finances/data/tables.html\n# Academic Achievement\nhttps://www.nationsreportcard.gov/ndecore/xplore/NDE\n</pre>\n\nData was aggregated using a Python program I wrote. The code (as well as additional project information) can be found [here][1].\n\n### Methodology Notes\n\n* Spreadsheets for NCES enrollment data for 2014, 2011, 2010, and 2009 \nwere modified to place key data on the same sheet, making scripting easier.\n\n* The column 'ENROLL' represents the U.S. Census Bureau data value (financial data), while the\ncolumn 'GRADES_ALL' represents the NCES data value (demographic data). Though the two organizations\ncorrespond on this matter, these values (which are ostensibly the same) do vary. Their documentation chalks this\nup to differences in membership (i.e. what is and is not a fourth grade student).\n\n* Enrollment data from NCES has seen a number of changes across survey years. One of the more notable is that data on student gender does not appear to have been collected until 2009. The information in states_all_extended.csv reflects this.\n\n* NAEP test score data is only available for certain years\n\n* The current version of this data is concerned with state-level patterns. It is the author's hope that future\nversions will allow for school district-level granularity.\n\n### Acknowledgements\n\nData is sourced from the U.S. Census Bureau and the National Center for Education Statistics (NCES).\n\n### Licensing Notes\n\nThe licensing of these datasets state that it must not be used to identify specific students or schools. So\ndon't do that.\n\n\n  [1]: https://github.com/justinrgarrard/USEduData","url":"https://www.kaggle.com/noriuk/us-education-datasets-unification-project","version":5,"keywords":["subject, science and technology, computer science","subject, people and society, education","subject, science and technology, computer science, programming","subject, people and society, business, finance","subject, people and society, social science","geography and places, north america, united states"],"license":{"@type":"CreativeWork","name":"Other (specified in description)","url":""},"identifier":["95317"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Roy Garrard","url":"https://www.kaggle.com/noriuk","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/1159129-kg.png"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/noriuk/us-education-datasets-unification-project/download","contentSize":"155201337 bytes"}],"commentCount":3,"dateModified":"2020-04-13T17:09:38.083Z","discussionUrl":"https://www.kaggle.com/noriuk/us-education-datasets-unification-project/discussion","alternateName":"K-12 financial, enrollment, and achievement data in one place","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/95317/222058/931f23cd121437c972b622a647c00b3c/dataset-card.jpg?t=2018-12-22-16-03-27","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":3},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":14880},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":128561},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":428}]}</script>
+
+
+  
+    
+
+  
+    
+    
+<script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/javascript">
+    var Kaggle = window.Kaggle || {};
+
+    Kaggle.Current = {
+        antiForgeryToken: 'CfDJ8FbwD2QDBxpLtyrOjK44q8a2Hb9UxHqU_G4DIp0AWFFaTcudvcwaw2gt8EmSsfl90TB6BjMSflX31qbSyjucP7VLCkSqkL7EPkenWt_RoOABUg',
+        isAnonymous: true,
+        analyticsToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTIxMjQ4ODUsIlVzZXJJZCI6MH0.H25zL8oQrZGYTDMoq30LAs2sm4AwQQO0YZxOesINZ6k',
+        analyticsTokenExpiry: 15,
+        
+        
+        
+        
+        
+        
+        
+        enableRapidash: true, 
+        
+    }
+        Kaggle.Current.log = function(){};
+        Kaggle.Current.warn = function(){};
+
+    var decodeUserDisplayName = function () {
+        var escapedUserDisplayName = Kaggle.Current.userDisplayNameEscaped || "";
+        try {
+            var textVersion = new DOMParser().parseFromString(escapedUserDisplayName, "text/html").documentElement.textContent;
+            if (textVersion) {
+                return textVersion;
+            }
+        } catch(ex) {}
+        return escapedUserDisplayName;
+    }
+    Kaggle.Current.userDisplayName = decodeUserDisplayName();
+</script>
+
+    
+
+<script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/javascript">
+    var Kaggle = window.Kaggle || {};
+    Kaggle.PageMessages = [];
+</script>
+
+
+
+    <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="vRzt3LsTcvtbwWAtDfbpiQ==" src="https://apis.google.com/js/api.js" defer
+    async></script>
+  <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" src="/static/assets/runtime.js?v=c43288e44a42cc292b53" data-turbolinks-track="reload"></script>
+  <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" src="/static/assets/vendor.js?v=a2004e5f19533473e100" data-turbolinks-track="reload"></script>
+  <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" src="/static/assets/app.js?v=ca34bff2a3c0f78fcd1b" data-turbolinks-track="reload"></script>
+    <script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '0'
+      }
+    </script>
+</head>
+
+<body data-turbolinks="false">
+  <main>
+    
+
+
+
+
+
+
+<div id="site-container"></div>
+<div data-component-name="NavigationContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="vRzt3LsTcvtbwWAtDfbpiQ==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"navigationType":"BOTH_NAV"});performance && performance.mark && performance.mark("NavigationContainer.componentCouldBootstrap");</script>
+<div id="site-body" class="hide">
+    
+
+<div data-component-name="DatasetMaterialContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="vRzt3LsTcvtbwWAtDfbpiQ==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"basics":{"datasetId":95317,"slug":"us-education-datasets-unification-project","title":"U.S. Education Datasets: Unification Project","description":"***Author\u0027s Note 2019/04/20:*** *Revisiting this project, I recently discovered the [incredibly comprehensive API](https://educationdata.urban.org/documentation/schools.html#overview) produced by the Urban Institute. It achieves all of the goals laid out for this dataset in wonderful detail. I recommend that users interested pay a visit to their site.*\n\n### Context\n\nThis dataset is designed to bring together multiple facets of U.S. education data into one convenient CSV (states_all.csv). \n\n### Contents\n\n* **\u0060states_all.csv\u0060**:\nThe primary data file. Contains aggregates from all state-level sources in one CSV.\n\n* **\u0060output_files/states_all_extended.csv\u0060**:\nThe contents of \u0060states_all.csv\u0060 with additional data related to race and gender. \n\n\n### Column Breakdown\n\n#### **Identification**\n\n* \u0060PRIMARY_KEY\u0060: A combination of the year and state name.\n* \u0060YEAR\u0060\n* \u0060STATE\u0060\n\n\n#### **Enrollment**\nA breakdown of students enrolled in schools by school year.\n\n* \u0060GRADES_PK\u0060: Number of students in Pre-Kindergarten education.\n\n* \u0060GRADES_4\u0060: Number of students in fourth grade.\n\n* \u0060GRADES_8\u0060: Number of students in eighth grade.\n\n* \u0060GRADES_12\u0060: Number of students in twelfth grade.\n\n* \u0060GRADES_1_8\u0060: Number of students in the first through eighth grades.\n\n* \u0060GRADES 9_12\u0060: Number of students in the ninth through twelfth grades.\n\n* \u0060GRADES_ALL\u0060: The count of all students in the state. Comparable to ENROLL in the financial data (which is the U.S.\nCensus Bureau\u0027s estimate for students in the state).\n\nThe extended version of states_all contains additional columns that breakdown enrollment by race and gender. For example:\n\n* \u0060G06_A_A\u0060: Total number of sixth grade students.\n\n* \u0060G06_AS_M\u0060: Number of sixth grade male students whose ethnicity was classified as \u0022Asian\u0022.\n\n* \u0060G08_AS_A_READING\u0060: Average reading score of eighth grade students whose ethnicity was classified as \u0022Asian\u0022.\n\nThe represented races include AM (American Indian or Alaska Native), AS (Asian), HI (Hispanic/Latino), BL (Black or African American), WH (White), HP (Hawaiian Native/Pacific Islander), and TR (Two or More Races). The represented genders include M (Male) and F (Female).\n\n#### **Financials**\nA breakdown of states by revenue and expenditure.\n\n* \u0060ENROLL\u0060: The U.S. Census Bureau\u0027s count for students in the state. Should be comparable to GRADES_ALL (which is the\nNCES\u0027s estimate for students in the state).\n\n* \u0060TOTAL REVENUE\u0060: The total amount of revenue for the state.\n    * \u0060FEDERAL_REVENUE\u0060\n    * \u0060STATE_REVENUE\u0060\n    * \u0060LOCAL_REVENUE\u0060\n    \n* TOTAL_EXPENDITURE: The total expenditure for the state.\n    * \u0060INSTRUCTION_EXPENDITURE\u0060\n    * \u0060SUPPORT_SERVICES_EXPENDITURE\u0060\n\n    * \u0060CAPITAL_OUTLAY_EXPENDITURE\u0060\n    * \u0060OTHER_EXPENDITURE\u0060\n\n#### **Academic Achievement**\nA breakdown of student performance as assessed by the corresponding exams (math and reading, \ngrades 4 and 8).\n\n* \u0060AVG_MATH_4_SCORE\u0060: The state\u0027s average score for fourth graders taking the NAEP math exam.\n\n* \u0060AVG_MATH_8_SCORE\u0060: The state\u0027s average score for eight graders taking the NAEP math exam.\n\n* \u0060AVG_READING_4_SCORE\u0060: The state\u0027s average score for fourth graders taking the NAEP reading exam.\n\n* \u0060AVG_READING_8_SCORE\u0060: The state\u0027s average score for eighth graders taking the NAEP reading exam.\n\n### Data Processing\n\nThe original sources can be found here:\n\n\u003Cpre\u003E# Enrollment\nhttps://nces.ed.gov/ccd/stnfis.asp\n# Financials\nhttps://www.census.gov/programs-surveys/school-finances/data/tables.html\n# Academic Achievement\nhttps://www.nationsreportcard.gov/ndecore/xplore/NDE\n\u003C/pre\u003E\n\nData was aggregated using a Python program I wrote. The code (as well as additional project information) can be found [here][1].\n\n### Methodology Notes\n\n* Spreadsheets for NCES enrollment data for 2014, 2011, 2010, and 2009 \nwere modified to place key data on the same sheet, making scripting easier.\n\n* The column \u0027ENROLL\u0027 represents the U.S. Census Bureau data value (financial data), while the\ncolumn \u0027GRADES_ALL\u0027 represents the NCES data value (demographic data). Though the two organizations\ncorrespond on this matter, these values (which are ostensibly the same) do vary. Their documentation chalks this\nup to differences in membership (i.e. what is and is not a fourth grade student).\n\n* Enrollment data from NCES has seen a number of changes across survey years. One of the more notable is that data on student gender does not appear to have been collected until 2009. The information in states_all_extended.csv reflects this.\n\n* NAEP test score data is only available for certain years\n\n* The current version of this data is concerned with state-level patterns. It is the author\u0027s hope that future\nversions will allow for school district-level granularity.\n\n### Acknowledgements\n\nData is sourced from the U.S. Census Bureau and the National Center for Education Statistics (NCES).\n\n### Licensing Notes\n\nThe licensing of these datasets state that it must not be used to identify specific students or schools. So\ndon\u0027t do that.\n\n\n  [1]: https://github.com/justinrgarrard/USEduData","viewCount":128561,"downloadCount":14880,"scriptCount":26,"topicCount":3,"owner":{"id":1159129,"imageUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/1159129-kg.png","name":"Roy Garrard","profileUrl":"/noriuk","slug":"noriuk","userTier":"CONTRIBUTOR"},"license":{"id":12,"name":"Other (specified in description)"},"overview":"K-12 financial, enrollment, and achievement data in one place","collaboratorList":{"owner":{"userId":1159129,"profileUrl":"/noriuk","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/1159129-kg.png","name":"Roy Garrard","slug":"noriuk","userTier":"CONTRIBUTOR","type":"OWNER"}},"coverImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/95317/222058/931f23cd121437c972b622a647c00b3c/dataset-cover.jpg?t=2018-12-22-16-03-27","data":{"totalSize":155201337,"isFileset":true,"canSeeDownload":true,"firestorePath":"LBHhyxtconPCuih0qjfW/versions/4lkjpYNFjnoYt7qiYey9","downloadUrl":"/datasets/noriuk/noriuk/download?datasetVersionNumber=5","versionId":1108572,"id":105442},"voteCount":428,"medalUrl":"/static/images/medals/datasets/silverl@2x.png","downloadUrl":"/datasets/noriuk/us-education-datasets-unification-project/download","lastUpdateTime":"2020-04-13T17:09:38.083Z","datasetVersionNumber":5,"creatorDisplayName":"Roy Garrard","cardImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/95317/222058/931f23cd121437c972b622a647c00b3c/dataset-card.jpg?t=2018-12-22-16-03-27","categories":{"tags":[{"id":12107,"name":"computer science","fullPath":"subject \u003E science and technology \u003E computer science","listingUrl":"/datasets?group=public\u0026tagids=12107","description":"There is one thing we can say for sure about computer science: Computer science leads to more computer games which leads to better GPUs which leads to smarter AI.","datasetCount":14887,"notebookCount":208,"tagUrl":"/tags/computer-science","displayName":"Computer Science"},{"id":11105,"name":"education","fullPath":"subject \u003E people and society \u003E education","listingUrl":"/datasets?group=public\u0026tagids=11105","description":"Education datasets and kernels relate to statistics on student performance, university rankings, and answers for all your homework questions.","datasetCount":9318,"competitionCount":5,"notebookCount":14688,"tagUrl":"/tags/education","displayName":"Education"},{"id":12125,"name":"programming","fullPath":"subject \u003E science and technology \u003E computer science \u003E programming","listingUrl":"/datasets?group=public\u0026tagids=12125","description":"The programming tag contains datsets and kernels from coder surveys, revision histories, and bug triaging.","datasetCount":4344,"notebookCount":86226,"tagUrl":"/tags/programming","displayName":"Programming"},{"id":11108,"name":"finance","fullPath":"subject \u003E people and society \u003E business \u003E finance","listingUrl":"/datasets?group=public\u0026tagids=11108","description":"The finance tag covers datasets and kernels about money and investing. If you need to test some new cryptocurrency investment strategies or ward off those pesky credit card fraud enthusiasts, then you\u0027ve come to the right place.","datasetCount":3954,"competitionCount":9,"notebookCount":3510,"tagUrl":"/tags/finance","displayName":"Finance","fontAwesomeIcon":"bar-chart"},{"id":11200,"name":"social science","fullPath":"subject \u003E people and society \u003E social science","listingUrl":"/datasets?group=public\u0026tagids=11200","description":"Social science is the collection of disciplines studying how humans interact with each other.","datasetCount":3682,"notebookCount":738,"tagUrl":"/tags/social-sciences","displayName":"Social Science"},{"id":3022,"name":"united states","fullPath":"geography and places \u003E north america \u003E united states","listingUrl":"/datasets?group=public\u0026tagids=3022","description":"The top datasets and kernels in this tag are about mass shootings, AirBnB, homelessness, and witchcraft. That about sums it up.","datasetCount":747,"notebookCount":302,"tagUrl":"/tags/united-states","displayName":"United States"}]},"datasetExternalUrl":"https://www.kaggle.com/datasets/noriuk/us-education-datasets-unification-project","forumId":104970,"datasetVersionId":1078789,"canCreateTasks":true,"moderationStatus":"PRIVATED_MODERATION_STATUS_NO_ABUSE","lastVersionNumber":5,"diffType":"VERSIONED"},"@wf": "Datasets.DatasetMaterialDtoWireFormat3"});performance && performance.mark && performance.mark("DatasetMaterialContainer.componentCouldBootstrap");</script>
+<script nonce="vRzt3LsTcvtbwWAtDfbpiQ==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: [],
+    });
+</script>
+<script type="text/javascript" nonce="vRzt3LsTcvtbwWAtDfbpiQ==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const useProdHosts = ["www.kaggle.com", "admin.kaggle.com"];
+    const subdomain = useProdHosts.includes(window.location.hostname) ? "www" : "staging";
+
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    lib.src = `https://${subdomain}.kaggleusercontent.com/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+
+
+
+</div>
+
+
+
+
+  </main>
+</body>
+
+</html>
