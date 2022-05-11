@@ -20,41 +20,24 @@ In compiling the data, Mr. Garrard acquired publicly available data from NCES (N
 
 In the initial data set, there are 25 variables present, however, we did not use every feature in our analysis. The following table gives a brief overview of the variables used:
 
-+------------------------------+-----------------------------------------------------------+
 | Feature                      | Description                                               |
-+==============================+===========================================================+
+|==============================|===========================================================|
 | State                        | US state data originates from                             |
-+------------------------------+-----------------------------------------------------------+
 | Year                         | Year data was collected                                   |
-+------------------------------+-----------------------------------------------------------+
 | Enroll                       | Count for enrolled students in the state                  |
-+------------------------------+-----------------------------------------------------------+
 | Total Revenue                | Total amount of revenue for state                         |
-+------------------------------+-----------------------------------------------------------+
 | Federal Revenue              | Amount of revenue from federal government                 |
-+------------------------------+-----------------------------------------------------------+
 | State Revenue                | Amount of revenue from state government                   |
-+------------------------------+-----------------------------------------------------------+
 | Local Revenue                | Amount of revenue at local level                          |
-+------------------------------+-----------------------------------------------------------+
 | Total Expenditure            | Total Expenditure for the state                           |
-+------------------------------+-----------------------------------------------------------+
 | Instruction Expenditure      | Expenditure towards teacher salaries and school materials |
-+------------------------------+-----------------------------------------------------------+
 | Support Services Expenditure | Expenditure towards student support services              |
-+------------------------------+-----------------------------------------------------------+
 | Capital Outlay Expenditure   | Expenditure towards equipment and equipment improvement   |
-+------------------------------+-----------------------------------------------------------+
 | Other Expenditure            | Miscellaneous expenditures                                |
-+------------------------------+-----------------------------------------------------------+
 | Average Math 4 Score         | Average 4th grade NAEP math score (out of 500)            |
-+------------------------------+-----------------------------------------------------------+
 | Average Math 8 Score         | Average 8th grade NAEP math score (out of 500)            |
-+------------------------------+-----------------------------------------------------------+
 | Average Reading 4 Score      | Average 4th grade NAEP reading score (out of 500)         |
-+------------------------------+-----------------------------------------------------------+
 | Average Reading 8 Score      | Average 8th grade NAEP reading score (out of 500)         |
-+------------------------------+-----------------------------------------------------------+
 
 The data contains data from states in United States of America spanning from 1986-2019. The dataset contains a number of incomplete feature data in varying places across the dataset. For this reason, we decided to focus our analysis on the year 2015, as it was the most recent year containing complete data for analysis purposes.
 
