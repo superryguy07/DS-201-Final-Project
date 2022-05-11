@@ -21,7 +21,7 @@ In compiling the data, Mr. Garrard acquired publicly available data from NCES (N
 In the initial data set, there are 25 variables present, however, we did not use every feature in our analysis. The following table gives a brief overview of the variables used:
 
 | Feature                      | Description                                               |
-|==============================|===========================================================|
+|------------------------------|-----------------------------------------------------------|
 | State                        | US state data originates from                             |
 | Year                         | Year data was collected                                   |
 | Enroll                       | Count for enrolled students in the state                  |
