@@ -1,10 +1,3 @@
----
-title: "State Spending and Test Score Quality"
-author: "Ryan Wedeking, Nate Bontje, Rhys Yochem"
-date: "5/10/2022"
-output: html_document
----
-
 # State Spending and Test Score Quality
 
 ##### By Ryan Wedeking, Nate Bontje, and Rhys Yochem
