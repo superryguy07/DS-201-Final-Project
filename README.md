@@ -2,7 +2,7 @@
 
 ##### By Ryan Wedeking, Nate Bontje, and Rhys Yochem
 
-This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in RStudio.
+This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in Kaggle.
 
 https://www.kaggle.com/code/rhysyochem/wedeking-bontje-yochem-final-project
 
