@@ -150,7 +150,7 @@ As mentioned above, we found that the multivariate linear model approach was not
 - [Click here for our Walk-Through on Youtube](h)
 - [Click here for a presentation on our findings]()
 
-## Run Notebook on Google Colab
+## Run Notebook on Kaggle
 For a deeper understanding please click the link below to run and see our r code in Kaggle.
 
 [Click Here!](https://www.kaggle.com/code/rhysyochem/wedeking-bontje-yochem-final-project)
