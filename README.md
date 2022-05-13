@@ -136,6 +136,8 @@ plot(Expendmod)
 ```
 
 \
+![image](https://user-images.githubusercontent.com/98605235/168373935-3dbdfa04-e349-49b4-8c4e-6db433531b07.png)
+
 Looking at the residual plots and the root mean squared error from our model, we find that the model is not particularly accurate or effective in using the different expenditure variables to predict average 8th grade NAEP math scores.
 
 ## Deployment and Future Directions
