@@ -5,6 +5,7 @@
 This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in Kaggle.
 
 https://www.kaggle.com/code/rhysyochem/wedeking-bontje-yochem-final-project
+
 https://superryguy07.github.io/DS-201-Final-Project/
 
 ## Business Understanding
