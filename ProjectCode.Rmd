@@ -1,0 +1,255 @@
+---
+title: "Wedeking, Bontje, Yochem Final Project"
+author: "Ryan Wedeking, Nathan Bontje, Rhys Yochem"
+date: "5/13/2022"
+output: html_document
+---
+# State Spending and Test Score Quality
+
+##### By Ryan Wedeking, Nate Bontje, and Rhys Yochem
+
+This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in RStudio.
+
+## Business Understanding
+
+The United States is a uniquely diverse country in which peoples from all backgrounds and cultures reside. There are unfortunate disparities between these groups, whether it be based on region of origin, race, gender, sexual orientation, religion, socioeconomic status or other. One aspect of society in which these differences become apparent, is within the public education system.
+
+In addition to measuring academic progress from Kindergarten to the end of high school, standardized test services collect data regarding the different demographics of those who take their test. This helps to provide them actionable insight into what factors impact the quality of education in those who are taking their tests. Then, the scores on the standardized tests are used to inform government decisions regarding funding to different states and districts in the hopes of providing more resources to schools that are under performing.
+
+We have been tasked with analyzing data regarding test scores, funding and expenditures in different states, and population characteristics in an effort to gain actionable insight into what factors are related to student performance on the NAEP, which is a standardized test developed by the Educational Testing Service that aims to measure academic progress from K-12.
+
+## Data Understanding
+
+The data set we used for this major undertaking takes data from a number of sources and compiles them into one data set for ease of analysis. We acknowledge and appreciate that the data set was compiled by Roy Garrard and then posted for public use on Kaggle.com, a website designed for collaboration in the data science community.
+
+In compiling the data, Mr. Garrard acquired publicly available data from NCES (National Center for Educational Statistics) regarding educational statistics, and data from the US Census regarding the funding and expenditures for education in different states. He then used his own python code to compile the data into a single spreadsheet that he uploaded to Kaggle that we then downloaded for our own use in the following analysis.
+
+In the initial data set, there are 25 variables present, however, we did not use every feature in our analysis. The following table gives a brief overview of the variables used:
+
+| Feature                      | Description                                               |
+|------------------------------|-----------------------------------------------------------|
+| State                        | US state data originates from                             |
+| Year                         | Year data was collected                                   |
+| Enroll                       | Count for enrolled students in the state                  |
+| Total Revenue                | Total amount of revenue for state                         |
+| Federal Revenue              | Amount of revenue from federal government                 |
+| State Revenue                | Amount of revenue from state government                   |
+| Local Revenue                | Amount of revenue at local level                          |
+| Total Expenditure            | Total Expenditure for the state                           |
+| Instruction Expenditure      | Expenditure towards teacher salaries and school materials |
+| Support Services Expenditure | Expenditure towards student support services              |
+| Capital Outlay Expenditure   | Expenditure towards equipment and equipment improvement   |
+| Other Expenditure            | Miscellaneous expenditures                                |
+| Average Math 4 Score         | Average 4th grade NAEP math score (out of 500)            |
+| Average Math 8 Score         | Average 8th grade NAEP math score (out of 500)            |
+| Average Reading 4 Score      | Average 4th grade NAEP reading score (out of 500)         |
+| Average Reading 8 Score      | Average 8th grade NAEP reading score (out of 500)         |
+
+The data contains data from states in United States of America spanning from 1986-2019. The dataset contains a number of incomplete feature data in varying places across the dataset. For this reason, we decided to focus our analysis on the year 2015, as it was the most recent year containing complete data for analysis purposes.
+
+## Data Preparation
+
+To get more accurate numbers, we deemed it necessary to get the amount of money spend in each of the categories per enrolled student, as larger states would theoretically have to spend more money to get the same result as smaller states because they have more students to take care of. To do this, we appended our table to include 5 new columns which included numbers for the total spending of the state divided by the reported number of enrolled students. These new variables will be the main focus of our investigation instead of raw numbers.
+
+| Feature                       | Description                                                           |
+|-------------------------------|-----------------------------------------------------------------------|
+| ExpendTotalPerEnroll          | Total Government Expenditure Per Student Enrolled                     |
+| ExpendInstructionPerEnroll    | Total Instruction Expenditure Per Student Enrolled                    |
+| ExpendSocialServicesPerEnroll | Total Social Services Expenditure Per Student Enrolled                |
+| ExpendOtherPerEnroll          | Total Expenditure on Uncategorized use Per Student Enrolled           |
+| ExpendCapitalOutlayPerEnroll  | Total Spending on Equipment and Equipment Upkeep Per Student Enrolled |
+```{r}
+#Common Libraries
+library(ggplot2)
+library(tidyverse)
+library(ggcorrplot)
+library(grid)
+```
+
+```{r}
+#Necessary Library for Machine Learning Model
+install.packages("mlr")
+```
+
+```{r}
+#Downloading Data
+Orig <- read.csv("states_all.csv")
+#Filtering Data to 2015
+MyData <- filter(Orig, YEAR==2015)
+
+#Creating Empty Matrix for Math
+ExpenPerEnroll <- rep(0,51)
+
+#Taking out Columns with no Data, such as National Averages
+MyData <- MyData[-c(52, 53), ]
+```
+
+```{r}
+#Calculating Cost of Total Expense per Child Enrolled and Appending to DataFrame
+for (x in 1:51){
+  ExpenPerEnroll[x] = (MyData[x,9])/(MyData[x,4])
+}
+MyDataApend = cbind(MyData, ExpendTotalPerEnrol=ExpenPerEnroll)
+
+#Calculating Cost of Instruction per child enrolled and Appending to Dataframe
+for (x in 1:51){
+  ExpenPerEnroll[x] = (MyData[x,10])/(MyData[x,4])
+}
+MyDataApend = cbind(MyDataApend, ExpendInstructionPerEnrol=ExpenPerEnroll)
+
+#Calculating Cost of Support Services per Child Enrolled and Appending to DataFrame
+for (x in 1:51){
+  ExpenPerEnroll[x] = (MyData[x,11])/(MyData[x,4])
+}
+MyDataApend = cbind(MyDataApend, ExpendSupportServicesPerEnrol=ExpenPerEnroll)
+
+#Calculating Cost of Other Expenses per Child Enrolled and Appending to DataFrame
+for (x in 1:51){
+  ExpenPerEnroll[x] = (MyData[x,12])/(MyData[x,4])
+}
+MyDataApend = cbind(MyDataApend, ExpendOtherPerEnrol=ExpenPerEnroll)
+
+#Calculating Cost of Capital Outlay per Child Enrolled and Appending to DataFrame
+for (x in 1:51){
+  ExpenPerEnroll[x] = (MyData[x,13])/(MyData[x,4])
+}
+MyDataApend = cbind(MyDataApend, ExpendCapitalOutlayPerEnrol=ExpenPerEnroll)
+```
+
+## Modeling and Evaluating
+
+### Exploratory Data Analysis
+
+#### Confusion Matrix
+
+When looking at the data available to us, we decided the best course of action to start would be a confusion matrix to see if there were any variables that correlated with the average reading or math scores of 8th graders on the exam. As you can see, the money spent per enrolled student in each state had a small correlation when it came to academic achievement. As such, we decided to graph each variable in relation to math and reading scores to see if there was a reason for these low correlations.
+
+```{r}
+#Creating the Correlation
+corr <- round(cor(select(MyDataApend, AVG_MATH_8_SCORE, AVG_READING_8_SCORE, ExpendTotalPerEnrol, ExpendInstructionPerEnrol, ExpendSupportServicesPerEnrol,ExpendOtherPerEnrol, ExpendCapitalOutlayPerEnrol)), 10)
+
+#Mapping Correlation
+ggcorrplot(corr, hc.order = TRUE,
+   type = "lower",
+   outline.col = "white",
+   ggtheme = ggplot2::theme_gray,
+   colors = c("#6D9EC1", "white", "#E46726"),
+   lab = TRUE)
+```
+
+#### Scatter Plots
+
+Below are scatter plots comparing total expense, investment expense, social services expense, other expenses, and capital outlay expenses, all per student enrolled, compared to average reading and math scores. One outlier the we saw in every scatter plot was the district of Columbia, which was the lowest scorer in 2015 while spending by far the highest amount.
+
+```{r}
+#Creating annotation to explain outlier
+Columbia_Annotation = grobTree(textGrob("District of Columbia", x=.82, y=.06))
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendTotalPerEnrol, y=AVG_MATH_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Total Expense Per Enrollment Vs Average Math Test Score",x = "Total Expense Per Enrollment",y="Average Math Test Score")
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendTotalPerEnrol, y=AVG_READING_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Total Expense Per Enrollment Vs Average Reading Test Score",x = "Total Expense Per Enrollment",y="Average Reading Test Score")
+```
+
+```{r}
+#Creating annotation to explain outlier
+Columbia_Annotation = grobTree(textGrob("District of Columbia", x=.78, y=.03))
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendInstructionPerEnrol, y=AVG_MATH_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Instruction Expense Per Enrollment Vs Average Math Test Score",x = "Instruction Expense Per Enrollment",y="Average Math Test Score")
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendInstructionPerEnrol, y=AVG_READING_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Instruction Expense Per Enrollment Vs Average Reading Test Score",x = "Instruction Expense Per Enrollment",y="Average Reading Test Score")
+
+```
+
+```{r}
+#Creating annotation to explain outlier
+Columbia_Annotation = grobTree(textGrob("District of Columbia", x=.82, y=.06))
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendSupportServicesPerEnrol, y=AVG_MATH_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Support Service Expense Per Enrollment Vs Average Math Test Score",x = "Support Service Expense Per Enrollment",y="Average Math Test Score")
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendSupportServicesPerEnrol, y=AVG_READING_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Support Service Expense Per Enrollment Vs Average Reading Test Score",x = "Support Service Expense Per Enrollment",y="Average Reading Test Score")
+
+```
+
+```{r}
+#Creating annotation to explain outlier
+Columbia_Annotation = grobTree(textGrob("District of Columbia", x=.82, y=.06))
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendOtherPerEnrol, y=AVG_MATH_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Other Expense Per Enrollment Vs Average Math Test Score",x = "Other Expense Per Enrollment",y="Average Math Test Score")
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendOtherPerEnrol, y=AVG_READING_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Other Expense Per Enrollment Vs Average Reading Test Score",x = "Other Expense Per Enrollment",y="Average Reading Test Score")
+```
+
+```{r}
+#Creating annotation to explain outlier
+Columbia_Annotation = grobTree(textGrob("District of Columbia", x=.82, y=.06))
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendCapitalOutlayPerEnrol, y=AVG_MATH_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Capital Outlay Expense Per Enrollment Vs Average Math Test Score",x = "Capital Outlay Expense Per Enrollment",y="Average Math Test Score")
+
+#Plotting
+ggplot(MyDataApend) + geom_point(aes(x=ExpendCapitalOutlayPerEnrol, y=AVG_READING_8_SCORE)) + annotation_custom(Columbia_Annotation) + labs(title="Capital Outlay Expense Per Enrollment Vs Average Reading Test Score",x = "Capital Outlay Expense Per Enrollment",y="Average Reading Test Score")
+```
+
+### Second Confusion Matrix
+
+After looking at the scatter plots, it became clear that there was no obvious general trend that showed increased or decreased spending lead to higher academic achievement as measured by the exam. But, by looking at the scatter plot, it became clear the District of Columbia was a significant outlier consistently. It became evident that the District of Columbia was confounding our results, and that the data itself would not be useful when trying to predict state spending as the total spending without proportions for amount enrolled is insignificant compared to states and the amount enrolled is as well. Because of this, we decided to remove the outlier as it was not pertinent to our research question or helpful in creating a model. As a result, we created a second confusion matrix to see how much the correlations changed after removing the variable.
+
+```{r}
+#Deleting District of Columbia
+MyDataApend <- MyDataApend[-c(9), ]
+#Creating the Correlation
+corr <- round(cor(select(MyDataApend, AVG_MATH_8_SCORE, AVG_READING_8_SCORE, ExpendTotalPerEnrol, ExpendInstructionPerEnrol, ExpendSupportServicesPerEnrol,ExpendOtherPerEnrol, ExpendCapitalOutlayPerEnrol)), 10)
+
+#Mapping Correlation
+ggcorrplot(corr, hc.order = TRUE, type = "lower", outline.col = "white", ggtheme = ggplot2::theme_gray, colors = c("#6D9EC1", "white", "#E46726"), lab = TRUE)
+```
+
+
+### Modeling
+
+Following this exploratory data analysis, we decided to make a multivariate linear regression model to use the expenditure feature data to predict average grade 8 math scores. It is our hope that this model can be used to inform future funding and expenditure decisions in school districts to more effectively and efficiently use their resources to improve test performance. The model was created using the linear model function in R. The model was then trained using 70% of the data set and later tested using 30% of the data set that the model was not yet exposed to as a testing set. Lastly, the model was created using the data that excludes the District of Columbia as that was a consistent outlier in our data.
+
+The code for creating and testing this model is shown below:
+
+```{r}
+#set seed for reproducibility
+set.seed(1234) 
+
+#Code for Splitting data set into 70/30 test set/training set
+split1=sample(c(rep(0,0.7*nrow(MyDataApend)),rep(1,0.3*nrow(MyDataApend))))
+train=MyDataApend[split1==0,]
+test=MyDataApend[split1==1,]
+
+
+#Creating multivariate linear model to predict average grade 8 math score as a function of the different expenditure variables (Instruction, Support Services, Capital Outlay, Other Expenditure)
+Expendmod=lm(train$AVG_MATH_8_SCORE~train$INSTRUCTION_EXPENDITURE+train$SUPPORT_SERVICES_EXPENDITURE+train$OTHER_EXPENDITURE+train$CAPITAL_OUTLAY_EXPENDITURE)
+summary(Expendmod)
+
+#Testing our model using the testing set
+predict=predict(Expendmod,test)
+modelEval <- cbind(test$AVG_MATH_8_SCORE, predict)
+colnames(modelEval) <- c('Actual', 'Predicted')
+modelEval <- as.data.frame(modelEval)
+
+#printing performance metric of our model from the test set
+mse <- mean((modelEval$Actual - modelEval$Predicted)^2)
+rmse <- sqrt(mse)
+rmse
+
+#plotting residuals 
+par(mfrow=c(2,2))
+plot(Expendmod)
+
+```
+
+Looking at the residual plots and the root mean squared error from our model, we find that the model is not particularly accurate or effective in using the different expenditure variables to predict average 8th grade NAEP math scores.
+
+## Deployment and Future Directions
+
+As mentioned above, we found that the multivariate linear model approach was not an effective way to predict average math scores. The residual plots indicate that the normality distributions for our variables cannot necessarily be assumed and there are several other outliers in our data that are impacting the model performance (even though we removed the District of Columbia outlier). Thus, future improvements to the model should look into a different approach for predicting average NAEP scores. This could mean through transformations of our x variables, taking a non-linear approach, or switching to a classification approach where we use a logarithmic regression to predict the probability of differing expenditures resulting in a specific change in average NAEP scores. At the present, there are no major conclusions we can draw from our current data exploration and model, but there are plenty of future directions that could offer promising insight into this data that will assist future education policy making and funding and expenditure decisions.
