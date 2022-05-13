@@ -4,6 +4,8 @@
 
 This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in RStudio.
 
+https://www.kaggle.com/code/rhysyochem/wedeking-bontje-yochem-final-project
+
 https://www.kaggle.com/datasets/noriuk/us-education-datasets-unification-project/metadata?resource=download&select=states_all.csv
 
 ## Business Understanding
