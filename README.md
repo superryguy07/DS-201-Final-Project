@@ -147,7 +147,7 @@ As mentioned above, we found that the multivariate linear model approach was not
 # More Information
 
 ## YouTube Video Links
-- [Click here for our Walk-Through on Youtube](h)
+- [Click here for our Walk-Through on Youtube](https://youtu.be/5P5U1d1CZJ4)
 - [Click here for a presentation on our findings](https://youtu.be/uKoD4zKql6Q)
 
 ## Run Notebook on Kaggle
