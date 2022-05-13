@@ -4,6 +4,8 @@
 
 This contains a summary of the Final Project for DS 201. For more in-depth insight, please check out our walk-through video or run the notebook below in RStudio.
 
+https://www.kaggle.com/datasets/noriuk/us-education-datasets-unification-project/metadata?resource=download&select=states_all.csv
+
 ## Business Understanding
 
 The United States is a uniquely diverse country in which peoples from all backgrounds and cultures reside. There are unfortunate disparities between these groups, whether it be based on region of origin, race, gender, sexual orientation, religion, socioeconomic status or other. One aspect of society in which these differences become apparent, is within the public education system.
