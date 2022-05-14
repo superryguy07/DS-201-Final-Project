@@ -142,4 +142,24 @@ Looking at the residual plots and the root mean squared error from our model, we
 
 As mentioned above, we found that the multivariate linear model approach was not an effective way to predict average math scores. The residual plots indicate that the normality distributions for our variables cannot necessarily be assumed and there are several other outliers in our data that are impacting the model performance (even though we removed the District of Columbia outlier). Thus, future improvements to the model should look into a different approach for predicting average NAEP scores. This could mean through transformations of our x variables, taking a non-linear approach, or switching to a classification approach where we use a logarithmic regression to predict the probability of differing expenditures resulting in a specific change in average NAEP scores. At the present, there are no major conclusions we can draw from our current data exploration and model, but there are plenty of future directions that could offer promising insight into this data that will assist future education policy making and funding and expenditure decisions.
 
+# More Information
+
+## YouTube Video Links
+- [Click here for our Walk-Through on Youtube](https://youtu.be/5P5U1d1CZJ4)
+- [Click here for a presentation on our findings](https://youtu.be/uKoD4zKql6Q)
+
+## Run Notebook on Kaggle
+For a deeper understanding please click the link below to run and see our r code in Kaggle.
+
+[Click Here!](https://www.kaggle.com/code/rhysyochem/wedeking-bontje-yochem-final-project)
+
+
+## IO Page
+Here is the official github.io website page: https://superryguy07.github.io/DS-201-Final-Project/
+
+
+## Data Sources
+[U.S Education Dataset Unification Project](https://www.kaggle.com/datasets/noriuk/us-education-datasets-unification-project/metadata?resource=download&select=states_all.csv)
+
+
 \
